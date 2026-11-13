@@ -1,7 +1,7 @@
 'use strict';
 
 // Incrementa CACHE_VERSION cada vez que publiques cambios en preguntas, estilos o lógica
-const CACHE_VERSION = 'v3.2.2';
+const CACHE_VERSION = 'v3.2.3';
 const CACHE_NAME = `dilemma-pwa-${CACHE_VERSION}`;
 
 const CORE_ASSETS = [
