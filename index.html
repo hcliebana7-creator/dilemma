@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#030305">
+  <meta name="background-color" content="#030305">
+  <meta name="application-name" content="DILEMMA">
+  <meta name="description" content="DILEMMA - Juego social de ¿Qué prefieres? No hay buenas respuestas.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DILEMMA">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>DILEMMA — No hay buenas respuestas</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- PANTALLA PRINCIPAL -->
+    <section id="screen-home" class="screen active" aria-label="Menú principal">
+      <header class="top-bar">
+        <div class="brand-badge">PARTY EDITION</div>
+        <button id="btn-open-favs" class="icon-btn" type="button" aria-label="Ver dilemas favoritos guardados">
+          <span class="heart-icon" aria-hidden="true">♥</span>
+          <span id="fav-count">0</span>
+        </button>
+      </header>
+
+      <div class="hero-block">
+        <div class="hero-brand">
+          <img src="icon-192.png" alt="" class="hero-app-icon" aria-hidden="true">
+          <h1 class="logo" data-text="DILEMMA">DILEMMA</h1>
+        </div>
+        <p class="slogan">«No hay buenas respuestas»</p>
+      </div>
+
+      <div class="category-section">
+        <p id="category-label" class="section-label">ELIGE EL NIVEL DE RIESGO</p>
+        <div id="category-grid" class="category-grid" role="group" aria-labelledby="category-label">
+          
+          <!-- NORMAL: Bocadillo Pop-Art "¿?" + Rayo -->
+          <button class="cat-card selected" type="button" data-category="normal" aria-pressed="true">
+            <span class="cat-art normal-art" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="cat-svg">
+                <path d="M8 10 H36 C39.3 10 42 12.7 42 16 V28 C42 31.3 39.3 34 36 34 H22 L12 42 V34 H8 C4.7 34 2 31.3 2 28 V16 C2 12.7 4.7 10 8 10 Z" fill="#a855f7" stroke="#050508" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M18.5 17.5 C18.5 14.8 20.8 13.2 23.5 13.2 C26.4 13.2 28.5 15 28.5 17.6 C28.5 19.6 27.1 20.8 25.4 21.8 C24.3 22.5 23.8 23.2 23.8 24.6 H20.4 C20.4 22.4 21.2 21.2 22.8 20.2 C24.1 19.4 24.9 18.7 24.9 17.6 C24.9 16.5 24.1 15.8 22.9 15.8 C21.7 15.8 20.9 16.5 20.8 17.5 Z" fill="#ffffff"/>
+                <circle cx="22.1" cy="28.2" r="2.2" fill="#ffffff"/>
+                <polygon points="39,4 32,16 37,16 34,26 45,13 39,13" fill="#fde047" stroke="#050508" stroke-width="2.2" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="cat-info">
+              <span class="cat-name">Normal</span>
+              <span class="cat-desc">Absurdo, humor y decisiones jodidas</span>
+            </div>
+          </button>
+
+          <!-- +18: Labios Pop-Art mordiendo labio -->
+          <button class="cat-card" type="button" data-category="mas18" aria-pressed="false">
+            <span class="cat-art mas18-art" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="cat-svg">
+                <path d="M4 24 C9 15 16 13 24 18 C32 13 39 15 44 24 C38 35 30 39 24 39 C18 39 10 35 4 24 Z" fill="#ff1e42" stroke="#050508" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M9 24.5 Q24 21 39 24.5 Q31 30 24 30 Q17 30 9 24.5 Z" fill="#050508"/>
+                <path d="M15 24.2 H33 L31 28.5 H17 Z" fill="#ffffff" stroke="#050508" stroke-width="1.8" stroke-linejoin="round"/>
+                <line x1="24" y1="24.2" x2="24" y2="28.5" stroke="#050508" stroke-width="1.8"/>
+                <path d="M13 18.5 Q16 16.5 19 18" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="cat-info">
+              <span class="cat-name">+18</span>
+              <span class="cat-desc">Sexo, morbo, fantasías y cama</span>
+            </div>
+          </button>
+
+          <!-- EXTREMO: Calavera Pop-Art con grieta/rayo -->
+          <button class="cat-card" type="button" data-category="extremo" aria-pressed="false">
+            <span class="cat-art extremo-art" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="cat-svg">
+                <path d="M24 6 C13.5 6 7 13 7 22.5 C7 28 10 32.5 14 34.5 V41 H34 V34.5 C38 32.5 41 28 41 22.5 C41 13 34.5 6 24 6 Z" fill="#f97316" stroke="#050508" stroke-width="3" stroke-linejoin="round"/>
+                <circle cx="17.5" cy="23" r="4.5" fill="#050508"/>
+                <circle cx="30.5" cy="23" r="4.5" fill="#050508"/>
+                <polygon points="24,26 21.5,31 26.5,31" fill="#050508"/>
+                <line x1="19" y1="35" x2="19" y2="41" stroke="#050508" stroke-width="2.6"/>
+                <line x1="24" y1="35" x2="24" y2="41" stroke="#050508" stroke-width="2.6"/>
+                <line x1="29" y1="35" x2="29" y2="41" stroke="#050508" stroke-width="2.6"/>
+                <polyline points="25,7 22,13 27,14 23,19" fill="none" stroke="#fde047" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="cat-info">
+              <span class="cat-name">Extremo</span>
+              <span class="cat-desc">Moral, psicológico y sin retorno</span>
+            </div>
+          </button>
+
+          <!-- SIN FILTRO: Bomba Pop-Art con mecha encendida -->
+          <button class="cat-card" type="button" data-category="sinfiltro" aria-pressed="false">
+            <span class="cat-art sinfiltro-art" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="cat-svg">
+                <rect x="24" y="10" width="9" height="6" rx="1.5" transform="rotate(25 28 13)" fill="#ec4899" stroke="#050508" stroke-width="2.6"/>
+                <path d="M30 11 Q35 6 40 9" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
+                <polygon points="41,3 42.5,7.5 47,9 42.5,10.5 41,15 39.5,10.5 35,9 39.5,7.5" fill="#fde047" stroke="#050508" stroke-width="1.6" stroke-linejoin="round"/>
+                <circle cx="21" cy="28" r="14" fill="#ec4899" stroke="#050508" stroke-width="3"/>
+                <path d="M13 22 A9 9 0 0 1 21 18" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="cat-info">
+              <span class="cat-name">Sin filtro</span>
+              <span class="cat-desc">Secretos, amigos y vergüenza ajena</span>
+            </div>
+          </button>
+
+          <!-- PAREJAS: Corazón Pop-Art partido por un rayo -->
+          <button class="cat-card" type="button" data-category="parejas" aria-pressed="false">
+            <span class="cat-art parejas-art" aria-hidden="true">
+              <svg viewBox="0 0 48 48" class="cat-svg">
+                <path d="M24 41 C24 41 6 29.5 6 17.5 C6 11.2 11 7 16.5 7 C20.2 7 22.8 9 24 11.8 C25.2 9 27.8 7 31.5 7 C37 7 42 11.2 42 17.5 C42 29.5 24 41 24 41 Z" fill="#c084fc" stroke="#050508" stroke-width="3" stroke-linejoin="round"/>
+                <polyline points="24,11 20,20 26,23 21,32 24,40" fill="none" stroke="#050508" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 16 A5 5 0 0 1 16 11.5" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <div class="cat-info">
+              <span class="cat-name">Parejas</span>
+              <span class="cat-desc">Celos, lealtad, ex y convivencia</span>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+      <div class="home-footer">
+        <div class="mode-selector-panel">
+          <div class="mode-tabs" role="group" aria-label="Modo de juego">
+            <button id="btn-mode-classic" class="mode-tab active" type="button" data-mode="classic" aria-pressed="true">
+              MODO CLÁSICO
+            </button>
+            <button id="btn-mode-group" class="mode-tab" type="button" data-mode="group" aria-pressed="false">
+              VOTACIÓN GRUPAL
+            </button>
+          </div>
+
+          <div id="players-config" class="players-config" hidden>
+            <div class="players-config-row">
+              <span class="players-label">PARTICIPANTES</span>
+              <div class="players-stepper">
+                <button id="btn-players-dec" class="stepper-btn" type="button" aria-label="Restar participante">−</button>
+                <span id="players-count" class="players-count" aria-live="polite">4</span>
+                <button id="btn-players-inc" class="stepper-btn" type="button" aria-label="Sumar participante">+</button>
+              </div>
+            </div>
+            <div id="players-names-grid" class="players-names-grid" aria-label="Nombres o apodos de los participantes"></div>
+          </div>
+        </div>
+
+        <button id="btn-start" class="btn-play" type="button">JUGAR</button>
+      </div>
+    </section>
+
+    <!-- PANTALLA DE JUEGO -->
+    <section id="screen-game" class="screen" aria-label="Partida en curso">
+      <header class="game-header">
+        <button id="btn-back-menu" class="nav-btn" type="button" aria-label="Volver al menú principal">
+          ← MENÚ
+        </button>
+        <div class="game-meta">
+          <span id="game-cat-badge" class="cat-pill">NORMAL</span>
+          <span id="round-counter" class="round-text" aria-live="polite">RONDA 1</span>
+        </div>
+        <button id="btn-toggle-fav" class="fav-toggle-btn" type="button" aria-label="Guardar en favoritos" aria-pressed="false">
+          ♥
+        </button>
+      </header>
+
+      <!-- VISTA 1: ARENA DE OPCIONES A/B -->
+      <main id="dilemma-arena" class="dilemma-arena">
+        <div class="arena-top-info">
+          <p class="prompt-title">¿QUÉ PREFIERES?</p>
+          <span id="turn-badge" class="turn-badge" aria-live="polite" hidden>TURNO DE JUGADOR 1 (1/4) • VOTO SECRETO</span>
+        </div>
+
+        <div class="options-wrapper">
+          <button id="option-a" class="option-card option-a" type="button" aria-pressed="false">
+            <span class="option-tag">OPCIÓN A</span>
+            <p id="text-option-a" class="option-text"></p>
+          </button>
+
+          <div class="vs-divider" aria-hidden="true">
+            <span>O</span>
+          </div>
+
+          <button id="option-b" class="option-card option-b" type="button" aria-pressed="false">
+            <span class="option-tag">OPCIÓN B</span>
+            <p id="text-option-b" class="option-text"></p>
+          </button>
+        </div>
+      </main>
+
+      <!-- VISTA 2: PANTALLA INTERMEDIA (PASAR EL MÓVIL) -->
+      <div id="group-pass-view" class="group-stage-view" hidden>
+        <div class="pass-card">
+          <span id="pass-secret-pill" class="pass-secret-pill">✓ VOTO GUARDADO EN SECRETO</span>
+          <h2 id="pass-title" class="pass-title">PASA EL MÓVIL AL JUGADOR 2</h2>
+          <p id="pass-desc" class="pass-desc">Tu elección ha quedado oculta. Entrega el teléfono al siguiente participante sin revelar tu respuesta.</p>
+          <button id="btn-ready-vote" class="btn-play btn-pass-ready" type="button">
+            SOY EL JUGADOR 2 • VOTAR
+          </button>
+        </div>
+      </div>
+
+      <!-- VISTA 3: RESULTADOS DE VOTACIÓN GRUPAL -->
+      <div id="group-results-view" class="group-stage-view" hidden>
+        <div class="results-header-box">
+          <span id="results-winner-badge" class="results-winner-badge" aria-live="polite">GANA LA OPCIÓN A</span>
+          <p id="results-total-info" class="results-total-info">4 votos registrados</p>
+        </div>
+
+        <div class="results-cards-wrapper">
+          <div id="result-card-a" class="result-card result-card-a">
+            <div class="result-card-top">
+              <span class="option-tag">OPCIÓN A</span>
+              <div class="result-stats">
+                <span id="result-pct-a" class="result-pct">50%</span>
+                <span id="result-votes-a" class="result-votes">(2 votos)</span>
+              </div>
+            </div>
+            <div class="result-bar-track" aria-hidden="true">
+              <div id="result-bar-a" class="result-bar-fill fill-a" style="width: 50%"></div>
+            </div>
+            <p id="result-text-a" class="result-dilemma-text"></p>
+            <div id="result-voters-a" class="result-voters"></div>
+          </div>
+
+          <div id="result-card-b" class="result-card result-card-b">
+            <div class="result-card-top">
+              <span class="option-tag">OPCIÓN B</span>
+              <div class="result-stats">
+                <span id="result-pct-b" class="result-pct">50%</span>
+                <span id="result-votes-b" class="result-votes">(2 votos)</span>
+              </div>
+            </div>
+            <div class="result-bar-track" aria-hidden="true">
+              <div id="result-bar-b" class="result-bar-fill fill-b" style="width: 50%"></div>
+            </div>
+            <p id="result-text-b" class="result-dilemma-text"></p>
+            <div id="result-voters-b" class="result-voters"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer id="game-footer" class="game-footer">
+        <button id="btn-skip" class="btn-skip" type="button" aria-label="Saltar pregunta sin responder">
+          SALTAR ↻
+        </button>
+        <button id="btn-next" class="btn-next" type="button" disabled>
+          SIGUIENTE DILEMA →
+        </button>
+      </footer>
+    </section>
+
+    <!-- PANTALLA DE FAVORITOS -->
+    <section id="screen-favs" class="screen" aria-label="Dilemas favoritos">
+      <header class="game-header">
+        <button id="btn-close-favs" class="nav-btn" type="button">← VOLVER</button>
+        <span class="cat-pill">FAVORITOS GUARDADOS</span>
+        <button id="btn-clear-favs" class="clear-btn" type="button">BORRAR</button>
+      </header>
+
+      <div id="favs-list" class="favs-list"></div>
+    </section>
+
+    <!-- MODAL DE CONFIRMACIÓN PARA BORRAR FAVORITOS -->
+    <div id="modal-confirm-clear" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-box">
+        <p id="modal-title" class="modal-title">¿BORRAR TODOS LOS FAVORITOS?</p>
+        <p class="modal-desc">Esta acción eliminará todos los dilemas que has guardado y no se puede deshacer.</p>
+        <div class="modal-actions">
+          <button id="btn-cancel-clear" class="modal-btn modal-btn-cancel" type="button">CANCELAR</button>
+          <button id="btn-confirm-clear" class="modal-btn modal-btn-danger" type="button">SÍ, BORRAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVISO TOAST -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
